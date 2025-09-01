@@ -38,11 +38,11 @@
         <script src="js/leaflet.photon.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="data/YouthProportion_1.js"></script>
-        <script src="data/RiskperKelurahan2045_7.js"></script>
-        <script src="data/RiskperKelurahan2040_8.js"></script>
-        <script src="data/RiskperKelurahan2035_9.js"></script>
-        <script src="data/RiskperKelurahan2030_10.js"></script>
-        <script src="data/RiskperKelurahan2025_11.js"></script>
+        <script src="data/Risk2045_7.js"></script>
+        <script src="data/Risk2040_8.js"></script>
+        <script src="data/Risk2035_9.js"></script>
+        <script src="data/Risk2030_10.js"></script>
+        <script src="data/Risk2025_11.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -61,7 +61,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-6.248905472224822,106.67884654446513],[-6.0936513575478175,107.11407132504394]]);
+        }).fitBounds([[-6.310559487057818,106.5942463692947],[-6.0014975724802735,107.07264133609627]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -277,7 +277,7 @@
                                               img_bounds_Q1002025_6,
                                               {pane: 'pane_Q1002025_6'});
         bounds_group.addLayer(layer_Q1002025_6);
-        function pop_RiskperKelurahan2045_7(feature, layer) {
+        function pop_Risk2045_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -303,10 +303,23 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_RiskperKelurahan2045_7_0(feature) {
+        function style_Risk2045_7_0(feature) {
+            if (feature.properties['EAD 2045'] >= 0.000000 && feature.properties['EAD 2045'] <= 0.000000 ) {
+                return {
+                pane: 'pane_Risk2045_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
             if (feature.properties['EAD 2045'] >= 1.000000 && feature.properties['EAD 2045'] <= 2.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2045_7',
+                pane: 'pane_Risk2045_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -321,7 +334,7 @@
             }
             if (feature.properties['EAD 2045'] >= 2.000000 && feature.properties['EAD 2045'] <= 5.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2045_7',
+                pane: 'pane_Risk2045_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -336,7 +349,7 @@
             }
             if (feature.properties['EAD 2045'] >= 5.000000 && feature.properties['EAD 2045'] <= 10.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2045_7',
+                pane: 'pane_Risk2045_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -351,7 +364,7 @@
             }
             if (feature.properties['EAD 2045'] >= 10.000000 && feature.properties['EAD 2045'] <= 15.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2045_7',
+                pane: 'pane_Risk2045_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -366,7 +379,7 @@
             }
             if (feature.properties['EAD 2045'] >= 15.000000 && feature.properties['EAD 2045'] <= 99.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2045_7',
+                pane: 'pane_Risk2045_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -380,20 +393,20 @@
             }
             }
         }
-        map.createPane('pane_RiskperKelurahan2045_7');
-        map.getPane('pane_RiskperKelurahan2045_7').style.zIndex = 407;
-        map.getPane('pane_RiskperKelurahan2045_7').style['mix-blend-mode'] = 'normal';
-        var layer_RiskperKelurahan2045_7 = new L.geoJson(json_RiskperKelurahan2045_7, {
+        map.createPane('pane_Risk2045_7');
+        map.getPane('pane_Risk2045_7').style.zIndex = 407;
+        map.getPane('pane_Risk2045_7').style['mix-blend-mode'] = 'normal';
+        var layer_Risk2045_7 = new L.geoJson(json_Risk2045_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_RiskperKelurahan2045_7',
-            layerName: 'layer_RiskperKelurahan2045_7',
-            pane: 'pane_RiskperKelurahan2045_7',
-            onEachFeature: pop_RiskperKelurahan2045_7,
-            style: style_RiskperKelurahan2045_7_0,
+            dataVar: 'json_Risk2045_7',
+            layerName: 'layer_Risk2045_7',
+            pane: 'pane_Risk2045_7',
+            onEachFeature: pop_Risk2045_7,
+            style: style_Risk2045_7_0,
         });
-        bounds_group.addLayer(layer_RiskperKelurahan2045_7);
-        function pop_RiskperKelurahan2040_8(feature, layer) {
+        bounds_group.addLayer(layer_Risk2045_7);
+        function pop_Risk2040_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -419,10 +432,23 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_RiskperKelurahan2040_8_0(feature) {
+        function style_Risk2040_8_0(feature) {
+            if (feature.properties['EAD 2040'] >= 0.000000 && feature.properties['EAD 2040'] <= 0.000000 ) {
+                return {
+                pane: 'pane_Risk2040_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
             if (feature.properties['EAD 2040'] >= 1.000000 && feature.properties['EAD 2040'] <= 2.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2040_8',
+                pane: 'pane_Risk2040_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -437,7 +463,7 @@
             }
             if (feature.properties['EAD 2040'] >= 2.000000 && feature.properties['EAD 2040'] <= 5.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2040_8',
+                pane: 'pane_Risk2040_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -452,7 +478,7 @@
             }
             if (feature.properties['EAD 2040'] >= 5.000000 && feature.properties['EAD 2040'] <= 10.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2040_8',
+                pane: 'pane_Risk2040_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -467,7 +493,7 @@
             }
             if (feature.properties['EAD 2040'] >= 10.000000 && feature.properties['EAD 2040'] <= 15.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2040_8',
+                pane: 'pane_Risk2040_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -482,7 +508,7 @@
             }
             if (feature.properties['EAD 2040'] >= 15.000000 && feature.properties['EAD 2040'] <= 99.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2040_8',
+                pane: 'pane_Risk2040_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -496,20 +522,20 @@
             }
             }
         }
-        map.createPane('pane_RiskperKelurahan2040_8');
-        map.getPane('pane_RiskperKelurahan2040_8').style.zIndex = 408;
-        map.getPane('pane_RiskperKelurahan2040_8').style['mix-blend-mode'] = 'normal';
-        var layer_RiskperKelurahan2040_8 = new L.geoJson(json_RiskperKelurahan2040_8, {
+        map.createPane('pane_Risk2040_8');
+        map.getPane('pane_Risk2040_8').style.zIndex = 408;
+        map.getPane('pane_Risk2040_8').style['mix-blend-mode'] = 'normal';
+        var layer_Risk2040_8 = new L.geoJson(json_Risk2040_8, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_RiskperKelurahan2040_8',
-            layerName: 'layer_RiskperKelurahan2040_8',
-            pane: 'pane_RiskperKelurahan2040_8',
-            onEachFeature: pop_RiskperKelurahan2040_8,
-            style: style_RiskperKelurahan2040_8_0,
+            dataVar: 'json_Risk2040_8',
+            layerName: 'layer_Risk2040_8',
+            pane: 'pane_Risk2040_8',
+            onEachFeature: pop_Risk2040_8,
+            style: style_Risk2040_8_0,
         });
-        bounds_group.addLayer(layer_RiskperKelurahan2040_8);
-        function pop_RiskperKelurahan2035_9(feature, layer) {
+        bounds_group.addLayer(layer_Risk2040_8);
+        function pop_Risk2035_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -535,10 +561,23 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_RiskperKelurahan2035_9_0(feature) {
+        function style_Risk2035_9_0(feature) {
+            if (feature.properties['EAD 2035'] >= 0.000000 && feature.properties['EAD 2035'] <= 0.000000 ) {
+                return {
+                pane: 'pane_Risk2035_9',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
             if (feature.properties['EAD 2035'] >= 1.000000 && feature.properties['EAD 2035'] <= 2.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2035_9',
+                pane: 'pane_Risk2035_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -553,7 +592,7 @@
             }
             if (feature.properties['EAD 2035'] >= 2.000000 && feature.properties['EAD 2035'] <= 5.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2035_9',
+                pane: 'pane_Risk2035_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -568,7 +607,7 @@
             }
             if (feature.properties['EAD 2035'] >= 5.000000 && feature.properties['EAD 2035'] <= 10.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2035_9',
+                pane: 'pane_Risk2035_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -583,7 +622,7 @@
             }
             if (feature.properties['EAD 2035'] >= 10.000000 && feature.properties['EAD 2035'] <= 15.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2035_9',
+                pane: 'pane_Risk2035_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -598,7 +637,7 @@
             }
             if (feature.properties['EAD 2035'] >= 15.000000 && feature.properties['EAD 2035'] <= 99.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2035_9',
+                pane: 'pane_Risk2035_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -612,20 +651,20 @@
             }
             }
         }
-        map.createPane('pane_RiskperKelurahan2035_9');
-        map.getPane('pane_RiskperKelurahan2035_9').style.zIndex = 409;
-        map.getPane('pane_RiskperKelurahan2035_9').style['mix-blend-mode'] = 'normal';
-        var layer_RiskperKelurahan2035_9 = new L.geoJson(json_RiskperKelurahan2035_9, {
+        map.createPane('pane_Risk2035_9');
+        map.getPane('pane_Risk2035_9').style.zIndex = 409;
+        map.getPane('pane_Risk2035_9').style['mix-blend-mode'] = 'normal';
+        var layer_Risk2035_9 = new L.geoJson(json_Risk2035_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_RiskperKelurahan2035_9',
-            layerName: 'layer_RiskperKelurahan2035_9',
-            pane: 'pane_RiskperKelurahan2035_9',
-            onEachFeature: pop_RiskperKelurahan2035_9,
-            style: style_RiskperKelurahan2035_9_0,
+            dataVar: 'json_Risk2035_9',
+            layerName: 'layer_Risk2035_9',
+            pane: 'pane_Risk2035_9',
+            onEachFeature: pop_Risk2035_9,
+            style: style_Risk2035_9_0,
         });
-        bounds_group.addLayer(layer_RiskperKelurahan2035_9);
-        function pop_RiskperKelurahan2030_10(feature, layer) {
+        bounds_group.addLayer(layer_Risk2035_9);
+        function pop_Risk2030_10(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -651,10 +690,23 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_RiskperKelurahan2030_10_0(feature) {
+        function style_Risk2030_10_0(feature) {
+            if (feature.properties['EAD 2030'] >= 0.000000 && feature.properties['EAD 2030'] <= 0.000000 ) {
+                return {
+                pane: 'pane_Risk2030_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
             if (feature.properties['EAD 2030'] >= 1.000000 && feature.properties['EAD 2030'] <= 2.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2030_10',
+                pane: 'pane_Risk2030_10',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -669,7 +721,7 @@
             }
             if (feature.properties['EAD 2030'] >= 2.000000 && feature.properties['EAD 2030'] <= 5.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2030_10',
+                pane: 'pane_Risk2030_10',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -684,7 +736,7 @@
             }
             if (feature.properties['EAD 2030'] >= 5.000000 && feature.properties['EAD 2030'] <= 10.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2030_10',
+                pane: 'pane_Risk2030_10',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -699,7 +751,7 @@
             }
             if (feature.properties['EAD 2030'] >= 10.000000 && feature.properties['EAD 2030'] <= 15.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2030_10',
+                pane: 'pane_Risk2030_10',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -714,7 +766,7 @@
             }
             if (feature.properties['EAD 2030'] >= 15.000000 && feature.properties['EAD 2030'] <= 99.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2030_10',
+                pane: 'pane_Risk2030_10',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -728,20 +780,20 @@
             }
             }
         }
-        map.createPane('pane_RiskperKelurahan2030_10');
-        map.getPane('pane_RiskperKelurahan2030_10').style.zIndex = 410;
-        map.getPane('pane_RiskperKelurahan2030_10').style['mix-blend-mode'] = 'normal';
-        var layer_RiskperKelurahan2030_10 = new L.geoJson(json_RiskperKelurahan2030_10, {
+        map.createPane('pane_Risk2030_10');
+        map.getPane('pane_Risk2030_10').style.zIndex = 410;
+        map.getPane('pane_Risk2030_10').style['mix-blend-mode'] = 'normal';
+        var layer_Risk2030_10 = new L.geoJson(json_Risk2030_10, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_RiskperKelurahan2030_10',
-            layerName: 'layer_RiskperKelurahan2030_10',
-            pane: 'pane_RiskperKelurahan2030_10',
-            onEachFeature: pop_RiskperKelurahan2030_10,
-            style: style_RiskperKelurahan2030_10_0,
+            dataVar: 'json_Risk2030_10',
+            layerName: 'layer_Risk2030_10',
+            pane: 'pane_Risk2030_10',
+            onEachFeature: pop_Risk2030_10,
+            style: style_Risk2030_10_0,
         });
-        bounds_group.addLayer(layer_RiskperKelurahan2030_10);
-        function pop_RiskperKelurahan2025_11(feature, layer) {
+        bounds_group.addLayer(layer_Risk2030_10);
+        function pop_Risk2025_11(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -767,10 +819,23 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_RiskperKelurahan2025_11_0(feature) {
+        function style_Risk2025_11_0(feature) {
+            if (feature.properties['EAD 2025'] >= 0.000000 && feature.properties['EAD 2025'] <= 0.000000 ) {
+                return {
+                pane: 'pane_Risk2025_11',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
             if (feature.properties['EAD 2025'] >= 1.000000 && feature.properties['EAD 2025'] <= 2.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2025_11',
+                pane: 'pane_Risk2025_11',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -785,7 +850,7 @@
             }
             if (feature.properties['EAD 2025'] >= 2.000000 && feature.properties['EAD 2025'] <= 5.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2025_11',
+                pane: 'pane_Risk2025_11',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -800,7 +865,7 @@
             }
             if (feature.properties['EAD 2025'] >= 5.000000 && feature.properties['EAD 2025'] <= 10.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2025_11',
+                pane: 'pane_Risk2025_11',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -815,7 +880,7 @@
             }
             if (feature.properties['EAD 2025'] >= 10.000000 && feature.properties['EAD 2025'] <= 15.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2025_11',
+                pane: 'pane_Risk2025_11',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -830,7 +895,7 @@
             }
             if (feature.properties['EAD 2025'] >= 15.000000 && feature.properties['EAD 2025'] <= 99.000000 ) {
                 return {
-                pane: 'pane_RiskperKelurahan2025_11',
+                pane: 'pane_Risk2025_11',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -844,19 +909,19 @@
             }
             }
         }
-        map.createPane('pane_RiskperKelurahan2025_11');
-        map.getPane('pane_RiskperKelurahan2025_11').style.zIndex = 411;
-        map.getPane('pane_RiskperKelurahan2025_11').style['mix-blend-mode'] = 'normal';
-        var layer_RiskperKelurahan2025_11 = new L.geoJson(json_RiskperKelurahan2025_11, {
+        map.createPane('pane_Risk2025_11');
+        map.getPane('pane_Risk2025_11').style.zIndex = 411;
+        map.getPane('pane_Risk2025_11').style['mix-blend-mode'] = 'normal';
+        var layer_Risk2025_11 = new L.geoJson(json_Risk2025_11, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_RiskperKelurahan2025_11',
-            layerName: 'layer_RiskperKelurahan2025_11',
-            pane: 'pane_RiskperKelurahan2025_11',
-            onEachFeature: pop_RiskperKelurahan2025_11,
-            style: style_RiskperKelurahan2025_11_0,
+            dataVar: 'json_Risk2025_11',
+            layerName: 'layer_Risk2025_11',
+            pane: 'pane_Risk2025_11',
+            onEachFeature: pop_Risk2025_11,
+            style: style_Risk2025_11_0,
         });
-        bounds_group.addLayer(layer_RiskperKelurahan2025_11);
+        bounds_group.addLayer(layer_Risk2025_11);
         const url = {"Nominatim OSM": "https://nominatim.openstreetmap.org/search?format=geojson&addressdetails=1&",
         "France BAN": "https://api-adresse.data.gouv.fr/search/?"}
         var photonControl = L.control.photon({
@@ -912,11 +977,11 @@
         });
         var overlaysTree = [
         {label: '<b>Risk By Subdistrict</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: 'Risk per Kelurahan 2025<br /><table><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2025_11_12milUSD0.png" /></td><td>1 - 2 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2025_11_25milUSD1.png" /></td><td>2 - 5 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2025_11_510milUSD2.png" /></td><td>5 - 10 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2025_11_1015milUSD3.png" /></td><td>10 - 15 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2025_11_15milUSD4.png" /></td><td>>15 mil. USD</td></tr></table>', layer: layer_RiskperKelurahan2025_11},
-            {label: 'Risk per Kelurahan 2030<br /><table><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2030_10_12milUSD0.png" /></td><td>1 - 2 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2030_10_25milUSD1.png" /></td><td>2 - 5 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2030_10_510milUSD2.png" /></td><td>5 - 10 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2030_10_1015milUSD3.png" /></td><td>10 - 15 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2030_10_15milUSD4.png" /></td><td>>15 mil. USD</td></tr></table>', layer: layer_RiskperKelurahan2030_10},
-            {label: 'Risk per Kelurahan 2035<br /><table><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2035_9_12milUSD0.png" /></td><td>1 - 2 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2035_9_25milUSD1.png" /></td><td>2 - 5 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2035_9_510milUSD2.png" /></td><td>5 - 10 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2035_9_1015milUSD3.png" /></td><td>10 - 15 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2035_9_15milUSD4.png" /></td><td>>15 mil. USD</td></tr></table>', layer: layer_RiskperKelurahan2035_9},
-            {label: 'Risk per Kelurahan 2040<br /><table><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2040_8_12milUSD0.png" /></td><td>1 - 2 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2040_8_25milUSD1.png" /></td><td>2 - 5 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2040_8_510milUSD2.png" /></td><td>5 - 10 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2040_8_1015milUSD3.png" /></td><td>10 - 15 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2040_8_15milUSD4.png" /></td><td>>15 mil. USD</td></tr></table>', layer: layer_RiskperKelurahan2040_8},
-            {label: 'Risk per Kelurahan 2045<br /><table><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2045_7_12milUSD0.png" /></td><td>1 - 2 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2045_7_25milUSD1.png" /></td><td>2 - 5 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2045_7_510milUSD2.png" /></td><td>5 - 10 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2045_7_1015milUSD3.png" /></td><td>10 - 15 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/RiskperKelurahan2045_7_15milUSD4.png" /></td><td>>15 mil. USD</td></tr></table>', layer: layer_RiskperKelurahan2045_7},]},
+            {label: 'Risk 2025<br /><table><tr><td style="text-align: center;"><img src="legend/Risk2025_11_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/Risk2025_11_12milUSD1.png" /></td><td>1 - 2 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2025_11_25milUSD2.png" /></td><td>2 - 5 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2025_11_510milUSD3.png" /></td><td>5 - 10 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2025_11_1015milUSD4.png" /></td><td>10 - 15 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2025_11_15milUSD5.png" /></td><td>>15 mil. USD</td></tr></table>', layer: layer_Risk2025_11},
+            {label: 'Risk 2030<br /><table><tr><td style="text-align: center;"><img src="legend/Risk2030_10_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/Risk2030_10_12milUSD1.png" /></td><td>1 - 2 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2030_10_25milUSD2.png" /></td><td>2 - 5 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2030_10_510milUSD3.png" /></td><td>5 - 10 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2030_10_1015milUSD4.png" /></td><td>10 - 15 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2030_10_15milUSD5.png" /></td><td>>15 mil. USD</td></tr></table>', layer: layer_Risk2030_10},
+            {label: 'Risk 2035<br /><table><tr><td style="text-align: center;"><img src="legend/Risk2035_9_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/Risk2035_9_12milUSD1.png" /></td><td>1 - 2 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2035_9_25milUSD2.png" /></td><td>2 - 5 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2035_9_510milUSD3.png" /></td><td>5 - 10 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2035_9_1015milUSD4.png" /></td><td>10 - 15 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2035_9_15milUSD5.png" /></td><td>>15 mil. USD</td></tr></table>', layer: layer_Risk2035_9},
+            {label: 'Risk 2040<br /><table><tr><td style="text-align: center;"><img src="legend/Risk2040_8_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/Risk2040_8_12milUSD1.png" /></td><td>1 - 2 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2040_8_25milUSD2.png" /></td><td>2 - 5 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2040_8_510milUSD3.png" /></td><td>5 - 10 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2040_8_1015milUSD4.png" /></td><td>10 - 15 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2040_8_15milUSD5.png" /></td><td>>15 mil. USD</td></tr></table>', layer: layer_Risk2040_8},
+            {label: 'Risk 2045<br /><table><tr><td style="text-align: center;"><img src="legend/Risk2045_7_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/Risk2045_7_12milUSD1.png" /></td><td>1 - 2 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2045_7_25milUSD2.png" /></td><td>2 - 5 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2045_7_510milUSD3.png" /></td><td>5 - 10 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2045_7_1015milUSD4.png" /></td><td>10 - 15 mil. USD</td></tr><tr><td style="text-align: center;"><img src="legend/Risk2045_7_15milUSD5.png" /></td><td>>15 mil. USD</td></tr></table>', layer: layer_Risk2045_7},]},
         {label: '<b>Hazard</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: "Q100 2025", layer: layer_Q1002025_6},
             {label: "Q100 2030", layer: layer_Q1002030_5},
